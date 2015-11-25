@@ -92,7 +92,7 @@ for(i=0;i<=array.length;i++){
 		console.log('你所在的数组位置为:array['+i+']');
 		console.log('将打开的下一个网址为'+array[i+1]);
 		//跳转到下一个目标链接
-		//window.location.href = 'https://github.com/'+userUrl+'/'+array[i+1];
+		window.location.href = 'https://github.com/'+userUrl+'/'+array[i+1];
 		//console.log('https://github.com/AutumnsWind/'+array[i+1]);
 	}else if(url==url_array){
 		//找不到要处理的网址

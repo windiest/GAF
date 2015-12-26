@@ -1,0 +1,16 @@
+{
+  "name": "秋天的风·尤美",
+  "manifest_version": 2,
+  "version": "1.3",
+  "icons": { "128": "1.png" },
+  "description": "So you can put what you want on github star of the project, carried out together with the star. Support by AutumnsWind",
+  "browser_action": {
+    "default_icon": "1.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/oaoafly/"],
+      "js": ["jquery-1.7.2.min.js","myscript.js"]
+    }
+  ]
+}

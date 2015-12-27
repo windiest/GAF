@@ -50,7 +50,7 @@ function slowCrawlImg(i) {
 }
 
 function htmlCrawl() {
-	request.get('https://www.instagram.com/oaoafly/', function(error, response, result) {
+	request.get('', function(error, response, result) {
 		//console.log(result);
 		$ = cheerio.load(result);
 		var divs = $('');

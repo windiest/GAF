@@ -1,6 +1,6 @@
 {
   "name": "autumnswind",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Convenient online can be used to fetch data, but also a chrome plugin.",
   "main": "InsCrawlcb.js",
   "directories": {
@@ -35,6 +35,6 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AutumnsWind/GAF/issues"
+    "url": "https://github.com/AutumnsWind/GAF/issues/1"
   }
 }

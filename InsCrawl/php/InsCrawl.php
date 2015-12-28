@@ -23,5 +23,5 @@ function getImg($url = "", $filename = "")
   fclose($fp);
   return true;
 }
-getImg("https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/e15/1171278_413246425464855_535226495_n.jpg","image.jpg");
+getImg("https://1.jpg","image.jpg");
 ?>

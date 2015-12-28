@@ -5,9 +5,9 @@ var http = require('http');
 //var dns = require('dns');
 
 
-//var imgsObj = require('./ImgArray');
-var imgsObj = require('./ImgArrayHttp');
-//var imgsObj = require('./BaiduHeaderImgArray');
+var imgsObj = require('./Array/ImgArray');
+//var imgsObj = require('./Array/ImgArrayHttp');
+//var imgsObj = require('./Array/BaiduHeaderImgArray');
 var imgs = imgsObj.imgs;
 
 function quickCrawlImg() {
@@ -39,7 +39,7 @@ function quickCrawlImgOut(i) {
 }
 
 function slowCrawlImg(i) {
-	console.log(i + "/" + imgs.length);
+	//console.log(i + "/" + imgs.length);
 	console.log(imgs[i]);
 	request(imgs[i]).pipe(fs.createWriteStream('./DFFImg/dff' + i + '.jpg'));
 	//console.log(request(imgs[i]));

@@ -5,17 +5,18 @@ var http = require('http');
 //var dns = require('dns');
 
 
-var imgsObj = require('./Array/ImgArray');
-//var imgsObj = require('./Array/ImgArrayHttp');
+//var imgsObj = require('./Array/ImgArray');
+var imgsObj = require('./Array/ImgArrayHttp');
 //var imgsObj = require('./Array/BaiduHeaderImgArray');
 var imgs = imgsObj.imgs;
 
 function quickCrawlImg() {
+	init();
 	var i = 0;
 	for (i = 0; i < imgs.length; i++) {
 		console.log(i + "/" + imgs.length);
 		console.log(imgs[i]);
-		request(imgs[i]).pipe(fs.createWriteStream('./DFFImg/dff' + i + '.jpg'));
+		request(imgs[i]).pipe(fs.createWriteStream('./InsCrawlImg/dff' + i + '.jpg'));
 	}
 }
 
@@ -28,7 +29,7 @@ function quickCrawlImgOut(i) {
 			imgData += chunk;
 		});
 		res.on("end", function () {
-			fs.writeFile("./testImg/" + i + ".png", imgData, "binary", function (err) {
+			fs.writeFile("./InsCrawlImg/" + i + ".png", imgData, "binary", function (err) {
 				if (err) {
 					console.log(i + ".png " + "down fail");
 				}
@@ -41,7 +42,7 @@ function quickCrawlImgOut(i) {
 function slowCrawlImg(i) {
 	//console.log(i + "/" + imgs.length);
 	console.log("link:" + imgs[i]);
-	request(imgs[i]).pipe(fs.createWriteStream('./DFFImg/dff' + i + '.jpg'));
+	request(imgs[i]).pipe(fs.createWriteStream('./InsCrawlImg/dff' + i + '.jpg'));
 	//console.log(request(imgs[i]));
 	if (i < imgs[i]) {
 		clearInterval();
@@ -79,6 +80,21 @@ function readFile() {
 		var text = logData.toString();
 		console.log(text);
 	});
+}
+
+function mkdir() {
+	if (fs.exists("./InsCrawlImg", function (exists) {
+		exists ? console.log("img folder exists") : create();
+	})){};
+
+		function create() {
+			console.log("img folder create");
+			fs.mkdir("./InsCrawlImg");
+			}
+}
+
+function init(){
+	mkdir();
 }
 
 (function option(params) {

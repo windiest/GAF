@@ -40,7 +40,7 @@ function quickCrawlImgOut(i) {
 
 function slowCrawlImg(i) {
 	//console.log(i + "/" + imgs.length);
-	console.log("link:"+imgs[i]);
+	console.log("link:" + imgs[i]);
 	request(imgs[i]).pipe(fs.createWriteStream('./DFFImg/dff' + i + '.jpg'));
 	//console.log(request(imgs[i]));
 	if (i < imgs[i]) {
@@ -73,20 +73,6 @@ function run(cb, prarm) {
 }
 
 
-var options = process.argv;
-for (var o = 0; o < options.length; o++) {
-	if (options[o] == "s") {
-		var prarm = options[3];
-		run(slowCrawlImg, prarm);
-	} else if (options[o] == "q") {
-		var prarm = options[3];
-		quickCrawlImg(prarm);
-	} else if (options[o] == "qo") {
-		var prarm = options[3];
-		run(quickCrawlImgOut, prarm);
-	}
-}
-
 function readFile() {
 	fs.readFile('./www.instagram.com-1451121958567.log', function (err, logData) {
 		if (err) throw err;
@@ -94,3 +80,19 @@ function readFile() {
 		console.log(text);
 	});
 }
+
+(function option(params) {
+	var options = process.argv;
+	for (var o = 0; o < options.length; o++) {
+		if (options[o] == "s") {
+			var prarm = options[3];
+			run(slowCrawlImg, prarm);
+		} else if (options[o] == "q") {
+			var prarm = options[3];
+			quickCrawlImg(prarm);
+		} else if (options[o] == "qo") {
+			var prarm = options[3];
+			run(quickCrawlImgOut, prarm);
+		}
+	}
+})();

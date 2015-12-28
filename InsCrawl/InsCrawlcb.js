@@ -20,7 +20,6 @@ function quickCrawlImg() {
 }
 
 function quickCrawlImgOut(i) {
-	//var url = "http://s0.hao123img.com/res/img/logo/logonew.png";
 	url = imgs;
 	http.get(url[i], function(res) {
 		var imgData = "";

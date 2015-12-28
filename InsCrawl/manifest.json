@@ -5,7 +5,7 @@
   "icons": { "128": "1.png" },
   "description": "So you can put what you want on github star of the project, carried out together with the star. Support by AutumnsWind",
   "browser_action": {
-    "default_icon": "1.png"
+    "default_icon": "./base/img/1.png"
   },
   "content_scripts": [
     {

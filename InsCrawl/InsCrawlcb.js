@@ -21,14 +21,14 @@ function quickCrawlImg() {
 
 function quickCrawlImgOut(i) {
 	url = imgs;
-	http.get(url[i], function(res) {
+	http.get(url[i], function (res) {
 		var imgData = "";
 		res.setEncoding("binary");
-		res.on("data", function(chunk) {
+		res.on("data", function (chunk) {
 			imgData += chunk;
 		});
-		res.on("end", function() {
-			fs.writeFile("./testImg/" + i + ".png", imgData, "binary", function(err) {
+		res.on("end", function () {
+			fs.writeFile("./testImg/" + i + ".png", imgData, "binary", function (err) {
 				if (err) {
 					console.log(i + ".png " + "down fail");
 				}
@@ -40,7 +40,7 @@ function quickCrawlImgOut(i) {
 
 function slowCrawlImg(i) {
 	//console.log(i + "/" + imgs.length);
-	console.log(imgs[i]);
+	console.log("link:"+imgs[i]);
 	request(imgs[i]).pipe(fs.createWriteStream('./DFFImg/dff' + i + '.jpg'));
 	//console.log(request(imgs[i]));
 	if (i < imgs[i]) {
@@ -49,7 +49,7 @@ function slowCrawlImg(i) {
 }
 
 function htmlCrawl() {
-	request.get('', function(error, response, result) {
+	request.get('', function (error, response, result) {
 		//console.log(result);
 		$ = cheerio.load(result);
 		var divs = $('');
@@ -65,8 +65,8 @@ function run(cb, prarm) {
 		var i = 0;
 	}
 	setInterval(
-		function() {
-			console.log(i + "/" + imgs.length);
+		function () {
+			console.log("progress rate:" + i + "/" + imgs.length);
 			cb(i);
 			i++;
 		}, 1000)
@@ -76,9 +76,11 @@ function run(cb, prarm) {
 var options = process.argv;
 for (var o = 0; o < options.length; o++) {
 	if (options[o] == "s") {
-		run(slowCrawlImg);
+		var prarm = options[3];
+		run(slowCrawlImg, prarm);
 	} else if (options[o] == "q") {
-		quickCrawlImg();
+		var prarm = options[3];
+		quickCrawlImg(prarm);
 	} else if (options[o] == "qo") {
 		var prarm = options[3];
 		run(quickCrawlImgOut, prarm);
@@ -86,7 +88,7 @@ for (var o = 0; o < options.length; o++) {
 }
 
 function readFile() {
-	fs.readFile('./www.instagram.com-1451121958567.log', function(err, logData) {
+	fs.readFile('./www.instagram.com-1451121958567.log', function (err, logData) {
 		if (err) throw err;
 		var text = logData.toString();
 		console.log(text);

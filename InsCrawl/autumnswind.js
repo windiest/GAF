@@ -120,7 +120,7 @@ $(document).ready(function() {
 			console.log(bg);
 			bg.css("background-color": "#98bf21");
 			console.log(bg.css());*/
-		//for_moreImg_scroll()
+	for_moreImg_scroll()
 	bg();
 	sum();
 	zu_btn_more();

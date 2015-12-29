@@ -1,6 +1,6 @@
 {
   "name": "autumnswind",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Convenient online can be used to fetch data, but also a chrome plugin.",
   "main": "InsCrawlcb.js",
   "directories": {

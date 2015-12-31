@@ -1,0 +1,28 @@
+@import url("bootstrap.min.css");
+
+.row .x-sizes {
+    margin-right: 20px;
+}
+
+.row .x-colors {
+    margin-right: 20px;
+}
+#codeSource {
+    height: 100px;
+}
+canvas {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.x-logo {
+    position: absolute;
+    left: -10000px;
+    top:-10000px;
+}
+hr.x-hr  {
+    margin: 2px 0;
+}
+#preview {
+    padding: 5px;
+    text-align: center;
+}
